@@ -1,49 +1,46 @@
 # ImageOverlay
 
-Крошечная программа для Windows (≈30 КБ, без установки), которая показывает картинку **поверх всех окон** с настраиваемой прозрачностью. Удобно для рисования по референсу, обводки и сверки пропорций: картинка висит над программой рисования, а клики проходят сквозь неё.
-
+# En
 *A tiny (~30 KB) Windows app that shows a semi-transparent, click-through image on top of all windows — handy for tracing and drawing from references.*
 
-## Возможности
+## Features
 
-- Открытие картинки: кнопкой, перетаскиванием файла в окно или **вставкой из буфера (Ctrl+V)**.
-- Ползунки **непрозрачности** (5–100 %) и **масштаба** (10–400 %).
-- Режим **«Закрепить»**: клики проходят сквозь картинку в программу под ней.
-- PNG с прозрачным фоном отображается правильно.
-- Фото с телефона автоматически поворачиваются по EXIF.
-- Можно открыть файл через «Открыть с помощью…» или перетащить картинку прямо на `ImageOverlay.exe`.
+- Opening an image: via a button, by dragging and dropping a file into the window, or by **pasting from the clipboard (Ctrl+V)**.
+- Sliders for **opacity** (5–100%) and **scale** (10–400%).
+- **"Pin"** mode: mouse clicks pass through the image to the application underneath.
+- PNG files with transparent backgrounds are displayed correctly.
+- Photos from phones are automatically rotated based on EXIF ​​data.
+- Files can be opened using the "Open with..." menu, or by dragging and dropping an image directly onto `ImageOverlay.exe`.
 
-Поддерживаемые форматы: PNG, JPG, BMP, GIF, TIFF. WebP и прочие можно вставить через буфер обмена: в браузере нажми «Копировать изображение», потом Ctrl+V в программе.
+Supported formats: PNG, JPG, BMP, GIF, TIFF. Other formats, such as WebP, can be added via the clipboard: select "Copy image" in your browser, then press Ctrl+V within the application.
 
-## Управление
+## Controls
 
-| Действие | Как |
+| Action | Keybind |
 |---|---|
-| Двигать картинку | тянуть мышью |
-| Непрозрачность | колесо мыши над картинкой |
-| Масштаб | Ctrl + колесо мыши |
-| Закрепить / открепить (клики сквозь) | **Ctrl+Alt+L** |
-| Скрыть / показать картинку | **Ctrl+Alt+H** |
-| Непрозрачность, когда картинка закреплена | **Ctrl+Alt+Плюс / Минус** |
-| Открыть файл / вставить | Ctrl+O / Ctrl+V |
+| Move your image | Drag with mouse |
+| Opacity | Mouse Wheel |
+| Scale | Ctrl + Mouse Wheel |
+| Attach | **Ctrl+Alt+L** |
+| Hide | **Ctrl+Alt+H** |
+| Opacity while attached | **Ctrl+Alt+Плюс / Минус** |
+| Open / Paste | Ctrl+O / Ctrl+V |
 
-Горячие клавиши с Ctrl+Alt работают глобально, даже когда активна другая программа.
+## Code
 
-## Сборка
-
-Программа написана на C с использованием только Win32 API и GDI+, без C runtime и сторонних библиотек.
+The program is written in C using only the Win32 API and GDI+; it does not rely on the C runtime or any third-party libraries.
 
 ### Windows (Visual Studio)
 
-1. Установи [Visual Studio](https://visualstudio.microsoft.com/) или Build Tools с нагрузкой «Разработка классических приложений на C++».
-2. Открой **x64 Native Tools Command Prompt for VS**.
-3. Перейди в папку проекта и запусти `build.bat`.
+1. Install [Visual Studio](https://visualstudio.microsoft.com/) or the Build Tools, ensuring the "Desktop development with C++" workload is selected.
+2. Open the **x64 Native Tools Command Prompt for VS**.
+3. Navigate to the project directory and run `build.bat`.
 
-Результат: `build\ImageOverlay.exe`.
+The output will be: `build\ImageOverlay.exe`.
 
-### Linux / macOS (кросс-компиляция LLVM)
+### Linux / macOS (LLVM Cross-Compilation)
 
-Нужны `clang`, `lld-link`, `llvm-rc`, `llvm-dlltool` (пакеты `clang` и `lld`, `llvm`). Windows SDK не нужен.
+Requires `clang`, `lld-link`, `llvm-rc`, and `llvm-dlltool` (available via the `clang`, `lld`, and `llvm` packages). No Windows SDK is required.
 
 ```sh
 ./build.sh
@@ -51,19 +48,19 @@
 
 ### GitHub Actions
 
-При каждом push готовый `ImageOverlay.exe` собирается автоматически: вкладка **Actions** → последняя сборка → артефакт *ImageOverlay*.
+A ready-to-use `ImageOverlay.exe` is automatically built on every push: go to the **Actions** tab → select the latest build → download the *ImageOverlay* artifact.
 
-## Структура
+## Structure
 
 ```
-src/overlay.c        весь код программы
-res/app.rc           ресурсы: иконка, манифест, информация о версии
-res/app.manifest     DPI-awareness и современный вид элементов
-res/app.ico          иконка
-imports/*.def        списки функций Windows для сборки через build.sh
-build.bat / build.sh скрипты сборки
+src/overlay.c        Main program source code
+res/app.rc           Resources: icon, manifest, and version information
+res/app.manifest     DPI-awareness and modern UI element styling
+res/app.ico          Application icon
+imports/*.def        Windows function definitions for building via build.sh
+build.bat / build.sh Build scripts
 ```
 
-## Лицензия
+## License
 
 [MIT](LICENSE)
