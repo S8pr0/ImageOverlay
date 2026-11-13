@@ -1,0 +1,24 @@
+LIBRARY gdiplus.dll
+EXPORTS
+  GdiplusStartup
+  GdiplusShutdown
+  GdipCreateBitmapFromFile
+  GdipCreateBitmapFromStream
+  GdipCreateBitmapFromGdiDib
+  GdipCreateBitmapFromScan0
+  GdipGetImageWidth
+  GdipGetImageHeight
+  GdipGetImageGraphicsContext
+  GdipDeleteGraphics
+  GdipDisposeImage
+  GdipSetInterpolationMode
+  GdipSetPixelOffsetMode
+  GdipSetCompositingMode
+  GdipGraphicsClear
+  GdipDrawImageRectRectI
+  GdipCreateImageAttributes
+  GdipSetImageAttributesWrapMode
+  GdipDisposeImageAttributes
+  GdipGetPropertyItemSize
+  GdipGetPropertyItem
+  GdipImageRotateFlip

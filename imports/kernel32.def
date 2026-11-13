@@ -1,0 +1,12 @@
+LIBRARY kernel32.dll
+EXPORTS
+  GetModuleHandleW
+  ExitProcess
+  GetCommandLineW
+  LocalFree
+  GlobalAlloc
+  GlobalFree
+  GlobalLock
+  GlobalUnlock
+  GlobalSize
+  MulDiv
