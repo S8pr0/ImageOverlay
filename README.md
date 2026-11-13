@@ -1,6 +1,5 @@
 # ImageOverlay
 
-# En
 *A tiny (~30 KB) Windows app that shows a semi-transparent, click-through image on top of all windows — handy for tracing and drawing from references.*
 
 ## Features
